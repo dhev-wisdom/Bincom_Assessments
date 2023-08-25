@@ -1,0 +1,21 @@
+<!-- audio_list.html -->
+{% extends "main.html" %}
+
+{% block content %}
+<h2 class="text-center">Audio Page</h2>
+<div class="image-grid">
+    {% for item in audio %}
+        <div class=" per-img text-center">
+            <h3>{{ item.title }}</h3>
+            <audio controls>
+                <source src="{{ item.audio.url }}" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <p>{{item.audio_description}}</p>
+            <button class="delete"><a href="{% url 'delete_audio' item.id %}">Delete</a></button>
+        </div>
+    {% endfor %}
+</div>
+
+<button><a href="{% url 'upload-audio' %}" class="btn-a">Add Audio</a></button>
+{% endblock %}

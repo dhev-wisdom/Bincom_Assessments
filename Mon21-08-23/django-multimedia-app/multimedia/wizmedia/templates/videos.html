@@ -1,0 +1,21 @@
+<!-- videos.html -->
+{% extends "main.html" %}
+
+{% block content %}
+<h2 class="text-center">Videos Page</h2>
+<div class="image-grid">
+    {% for item in videos %}
+        <div class="per-img text-center">
+            <h2>{{item.title}}</h2>
+            <video controls width="600">
+                <source src="{{ item.video.url }}" type="video/mp4">
+                Your browser does not support the video element.
+            </video>
+            <p>{{item.video_description}}</p>
+            <button class="delete"><a href="{% url 'delete_video' item.id %}">Delete</a></button>
+        </div>
+    {% endfor %}
+    </div>
+
+<button><a href="{% url 'upload-video' %}" class="btn-a">Add Video</a></button>
+{% endblock %}

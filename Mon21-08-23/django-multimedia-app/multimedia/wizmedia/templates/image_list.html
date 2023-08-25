@@ -1,0 +1,19 @@
+<!-- image_list.html -->
+{% extends "main.html" %}
+
+{% block content %}
+<h2 class="text-center">Images Page</h2>
+<div class="image-grid">
+    {% for image in images %}
+        <div class="per-img text-center">
+            <h2>{{image.title}}</h2>
+            <img src="{{ image.image.url }}" alt="{{ image.title }}">
+            <p>{{image.image_description}}</p>
+            <button class="delete"><a href="{% url 'delete_image' image.id %}">Delete</a></button>
+        </div>
+    {% endfor %}
+</div>
+
+<button><a href="{% url 'upload-image' %}" class="btn-a">Add Image</a></button>
+
+{% endblock %}

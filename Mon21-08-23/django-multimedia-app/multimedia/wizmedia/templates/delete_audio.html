@@ -1,0 +1,16 @@
+<!-- delete_audio.html -->
+{% extends "main.html" %}
+
+{% block content %}
+<h2 class="text-center">Confirm Delete</h2>
+<div>
+    <p>Are you sure you want to delete "{{ audio.title }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="referrer" value="{{ request.META.HTTP_REFERER }}">
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'audio' %}">Cancel</a>
+    
+</div>
+{% endblock %}

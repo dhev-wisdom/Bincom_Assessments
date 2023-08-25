@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Multimedia App</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Wiz-Media</h1>
+    </header>
+
+
+    <nav>
+        <ul class="d-flex">
+            <li><h3><a href="{%url 'home'%}">Home</a></h3></li>
+            <li class="ms-auto"><h3><a href="{%url 'about'%}">About</a></h3></li>
+            <li><h3><a href="{%url 'images'%}">images</a></h3></li>
+            <li><h3><a href="{%url 'audio'%}">Audio</a></h3></li>
+            <li><h3><a href="{%url 'videos'%}">Videos</a></h3></li>
+            <li><h3><a href="{%url 'news'%}">News</a></h3></li>
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    
+    <footer>
+        <p>&copy; 2023 Wiz Media</p>
+    </footer>
+</body>
+</html>

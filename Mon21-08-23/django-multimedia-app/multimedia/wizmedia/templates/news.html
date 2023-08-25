@@ -1,0 +1,28 @@
+<!-- news.html -->
+{% extends "main.html" %}
+
+{% block content %}
+<h2 class="text-center">News Page</h2>
+<div class="news-grid">
+    {% for article in news %}
+        <div class="per-news text-center">
+            <div class="f-btw_">
+                <p class="country">{{article.country}}</p>
+                <p class="date">{{article.language}}</p>
+            </div>
+            <h3>{{article.title}}</h3>
+            <img src="{{article.image_url}}" alt="">
+            <p class="news-desc">{{article.description}}</p>
+            <h6>{{article.keywords.0}}</h6>
+            <p class="news-content">{{article.content}}</p>
+            <p class="news-link">News link: <a href="{{article.link}}">{{article.link}}</a></p>
+            <div class="f-btw">
+                <p class="creator">{{article.creator.0}}</p>
+                <p class="date">{{article.pubDate}}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
