@@ -2,13 +2,21 @@
 Fibonacci series
 """
 
-fibo = int(input("What's the length of the fibo series you want to create? "))
+fibo = None
+while fibo == None:
+    try:
+        fibo = int(input("What's the length of the fibo series you want to create? "))
+    except ValueError:
+        print("Please enter a positive number to generate fibonacci series")
 
 def fibonaci(fibo):
     """
     Fibonacci function
     """
     fibo_list = []
+    if fibo < 0:
+        print("Please enter a positive number")
+        return
     for i in range(fibo):
         if i == 0:
             fibo_list.append(0)
@@ -22,4 +30,4 @@ def fibonaci(fibo):
     return fibo_list
 
 if __name__ == '__main__':
-    print(fibonaci(fibo))
+    print("Fibonacci series for {}: {}".format(fibo, fibonaci(fibo)))
